@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  b Content:
+  = @document.content
+p
+  b User:
+  = @document.user_id
+
+= link_to 'Edit', edit_document_path(@document)
+`|
+= link_to 'Back', documents_path
