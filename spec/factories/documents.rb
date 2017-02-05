@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :document do
-    content "MyString"
-    user_id 1
+    content { Faker::Lorem.paragraphs }
+    user
   end
 end

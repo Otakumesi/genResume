@@ -1,2 +1,7 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+provide :title, "MarkdownDocuments"
+
+.jumbotron
+  h1 Welcome To MarkdownDocuments!!!
+  p Simplify writing a resume
+  = link_to '登録', new_user_registration_path, class: 'btn btn-success btn-large'
+  = link_to 'Facebookからはこちら', user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-large'

@@ -53,5 +53,5 @@ module.exports = {
 
   resolveLoader: {
     modules: [ path.resolve('../vendor/node_modules') ]
-  }
+  },
 }
