@@ -1,0 +1,17 @@
+nav class="navbar navbar-dark bg-primary navbar-full navbar-toggleable-md"
+  button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Menu"
+    span class="navbar-toggler-icon"
+      = fa_icon "chevron-down"
+  = link_to "MarkdownDocuments", root_url, class: "navbar-brand"
+  #navbarSupportedContent class="collapse navbar-collapse"
+    ul.nav.navbar-nav
+      - unless user_signed_in?
+        li.nav-item
+          = link_to "登録", new_user_registration_path, class: "nav-link"
+        li.nav-item
+          = link_to "ログイン", new_user_session_path, class: "nav-link"
+      - else
+        li.nav-item
+          = link_to "新しい履歴書を作る", new_user_document_path(current_user), class: "nav-link"
+        li.nav-item
+          = link_to "履歴書一覧", user_documents_path(current_user), class: "nav-link"
