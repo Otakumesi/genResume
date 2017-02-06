@@ -1,4 +1,13 @@
 ## README
 
-とりあえずBootstrapで見た目を仕上げていきたい
-（ついでにFBのOAuthログインもやっときます(OmniAuthだけど)）
+### TODO
+- デザイン
+ - コンセプトページ？
+- テスト
+ - Rspec
+ - mocha
+- OAuth
+ - Facebook
+ - Google
+
+
