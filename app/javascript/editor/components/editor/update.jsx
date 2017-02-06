@@ -12,11 +12,12 @@ export default class UpdateEditor extends Component {
         let id = this.props.params["document_id"];
         let user_id = this.props.params["user_id"];
         return (
-            <div>
-              <Editor isNewDoc={false}
-                      params={{id: id, user_id: user_id}}
-                      id={id}
-                      user_id={user_id} />
+            <div className="row">
+              <Editor
+                isNewDoc={false}
+                params={{id: id, user_id: user_id}}
+                id={id}
+                user_id={user_id} />
               <Reviewer />
             </div>
         );

@@ -13,6 +13,7 @@ class Editor extends Component {
         super(props);
         this.onChangeContent = this.onChangeContent.bind(this);
         this.onBlurContent = this.onBlurContent.bind(this);
+        this.onSaveClick = this.onSaveClick.bind(this);
     }
 
     componentWillMount() {
@@ -36,12 +37,25 @@ class Editor extends Component {
         this.props.post({isNewDoc: this.props.isNewDoc, document: this.props.document});
     }
 
+    onSaveClick(e) {
+        this.props.post({isNewDoc: this.props.isNewDoc, document: this.props.document});
+    }
+
     render() {
         return(
-            <textarea value={this.props.content}
-                      onChange={this.onChangeContent}
-                      onBlur={this.onBlurContent}
-                      ref='editor' />
+            <div className="col-xs-12 col-md-6">
+              <textarea className="doc_editor"
+                        onChange={this.onChangeContent}
+                        onBlur={this.onBlurContent}
+                        value={this.props.document.content}
+                        ref='editor' />
+              <button
+                type="button"
+                className="btn btn-lg btn-success btn-save"
+                onClick={this.onSaveClick}>
+                Save
+              </button>
+            </div>
         );
     }
 }

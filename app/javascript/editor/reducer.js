@@ -36,7 +36,7 @@ const reducer = handleActions({
     },
     DOCUMENT_VALIDATION_ERROR: (state, action) => {
         return Object.assign({}, state, {errorMsg: "エラー"});
-    }
+    },
 }, initalState);
 
 export default reducer;

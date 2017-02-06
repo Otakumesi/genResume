@@ -10,9 +10,13 @@ export default class CreateEditor extends Component {
     render() {
         let user_id = this.props.params["user_id"];
         return (
-            <Editor
-              isNewDoc={true}
-              user_id={user_id} />
+            <div className="container-fluid row">
+              <Editor
+                isNewDoc={true}
+                user_id={user_id} />
+              <Reviewer />
+            </div>
+
         );
     }
 }

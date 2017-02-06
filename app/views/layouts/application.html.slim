@@ -8,10 +8,12 @@ html[lang="ja"]
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  body
+  body.bg-faded
     = render 'layouts/header'
     .container-fluid
-      p.notice = notice
-      p.alert = alert
+      - if notice
+        p.notice = notice
+      - if alert
+        p.alert = alert
       .row
         = yield

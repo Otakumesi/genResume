@@ -7,18 +7,8 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerRuducer } from 'react-router-redux';
 
-class Reviewer extends Component {
-    render() {
-        return (
-                <div>
-                </div>
-        );
-    }
-}
-
 const history = syncHistoryWithStore(browserHistory, store);
 
-// Reviewerを追加するためにApp.jsを作る？
 document.addEventListener("DOMContentLoaded", e => {
     ReactDOM.render(
         <Provider store={store}>

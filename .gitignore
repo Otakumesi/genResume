@@ -44,7 +44,6 @@ config/secrets.yml
 /.bundle
 /vendor/bundle
 /vendor/node_modules
-/vendor/assets
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset

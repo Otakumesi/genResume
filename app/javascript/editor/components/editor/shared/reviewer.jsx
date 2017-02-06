@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import showdown from 'showdown';
 
-const MdConverter = new showdown.Converter();
+const mdConverterOptions = {
+    ghCodeBlocks: true,
+    tables: true,
+    tasklists: true,
+};
+const MdConverter = new showdown.Converter(mdConverterOptions);
 
 function rawMarkup(text) {
     let sanitizedText = htmlEncode(text);
@@ -25,7 +30,9 @@ class Reviewer extends Component {
 
     render() {
         return(
-            <div dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
+            <div
+              className="doc_reviewer keiyaku col-xs-12 col-md-6"
+              dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
         );
     }
 }
