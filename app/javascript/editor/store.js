@@ -1,6 +1,4 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import {  } from 'react-router-redux';
-
 import document from './reducer';
 
 import createSagaMiddleware from 'redux-saga';

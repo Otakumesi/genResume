@@ -12,8 +12,10 @@ html[lang="ja"]
     = render 'layouts/header'
     .container-fluid
       - if notice
-        p.notice = notice
+        p.notice class="alert alert-success"
+          = notice
       - if alert
-        p.alert = alert
+        p.alert class="alert alert-danger"
+          = alert
       .row
         = yield
