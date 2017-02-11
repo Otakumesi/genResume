@@ -1,42 +1,39 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+div class="ui middle aligned center aligned four column grid"
+  .column
+    h2 class="ui header"
+      i.edit.icon
+      | Edit
+      = resource_name.to_s.humanize
+    .ui.stacked.segment.centered
+       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+         = devise_error_messages!
+         .field
+           div class="ui left icon input"
+             i.mail.outline.icon
+             = f.email_field :email, placeholder: "xxxxx@xxx.com",  autofocus: true
+         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+           div
+             | Currently waiting confirmation for: 
+             = resource.unconfirmed_email
+         br
+         .field
+           div class="ui left icon input"
+             i.lock.icon
+             = f.password_field :password, placeholder: "***(最低#{@minimum_password_length})以上", autocomplete: "off"
+         br
+         .field
+           div class="ui left icon input"
+             i.lock.icon
+             = f.password_field :password_confirmation, placeholder: "***（入力確認）", autocomplete: "off"
+         br
+         .field
+           div class="ui left icon input"
+             i.unlock.icon
+             = f.password_field :current_password, placeholder: "***（必須）",  autocomplete: "off"
+         br
+         .actions
+           = button_tag type: "submit", class: "ui button primary" do
+             = fa_icon "refresh", text: "アカウントを更新する"
+       p
+         = button_to registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete, class: "ui button negative" do
+           = fa_icon "user-times", text: "アカウント削除する"

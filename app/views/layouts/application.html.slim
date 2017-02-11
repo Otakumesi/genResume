@@ -10,12 +10,12 @@ html[lang="ja"]
     = csrf_meta_tags
   body.bg-faded
     = render 'layouts/header'
-    .container-fluid
-      - if notice
-        p.notice class="alert alert-success"
-          = notice
-      - if alert
-        p.alert class="alert alert-danger"
-          = alert
-      .row
-        = yield
+    - if notice
+      p.notice class="ui negative message fluid"
+        i class="close icon"
+        = notice
+    - if alert
+      p.alert class="ui positive message fluid"
+        i class="close icon"
+        = alert
+    = yield

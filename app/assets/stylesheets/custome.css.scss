@@ -1,3 +1,5 @@
+@import "semantic-ui/semantic.min.css";
+
 html {
   margin: 0;
   padding: 0;
@@ -8,24 +10,40 @@ body {
   padding: 0;
 }
 
-.btn-save {
+.left-bottom-fixed {
   position: fixed;
   left: 20px;
   bottom: 20px;
   z-index: 100;
 }
 
-.doc_editor {
-  padding-top: 15px;
-  min-width: 320px;
-  width: 100%;
-  height: 100vh;
+.top-fixed {
+  position: fixed;
+  top: 70px;
+  z-index: 120;
 }
 
-.doc_reviewer {
+.document {
+  margin: 10px !important;
+}
+
+.input_value {
+  margin-bottom: 10px;
+}
+
+.document_reviewer {
   padding-top: 20px;
+  word-wrap: break-word;
+  min-height: 320px;
+}
+
+.document_editor {
+  padding: 10px;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100%;
 }
 
 .keiyaku table {
-  @extend .table
 }
+

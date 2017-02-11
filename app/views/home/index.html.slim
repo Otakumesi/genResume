@@ -1,15 +1,34 @@
 provide :title, "MarkdownDocuments"
 
-.col-xs-12.col-md-8.col-lg-6
-  .row
-    .col-12
-      .jumbotron.jumbotron-fluid
-        .display-2 Welcome To MarkdownDocuments!!!
-        p.lead Simplify writing a resume
-
-  .row
-    .col-12
-      .btn-group role="group"
-        = link_to '登録', new_user_registration_path, class: 'btn btn-success btn-large'
-        = link_to 'Facebookからはこちら', user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-large'
+.ui.grid
+  div class="ui two column centered grid"
+    .ui.message.huge.page.grid.centered.info.column
+      .header
+        h1 class="ui huge header" Welcome To MarkdownDocuments!!!
+        p Simplify writing a resume
+        - unless user_signed_in?
+          = link_to new_user_registration_path, class: 'ui teal button huge' do
+            | 登録 
+            = fa_icon "user"
+          |  
+          = link_to user_facebook_omniauth_authorize_path, class: 'ui facebook button huge' do
+            | facebookログイン 
+            = fa_icon "facebook-square"
+    .column
+      div class="ui three column grid"
+        div class="column ui center aligned"
+          = fa_icon "pencil 5x"
+          br
+          br
+          h4 日本語用ドキュメントが早くMarkdownで書ける？
+        div class="column ui center aligned"
+          = fa_icon "cloud 5x"
+          br
+          br
+          h4 キャッチコピーが思いつかない
+        div class="column ui center aligned"
+          = fa_icon "copy 5x"
+          br
+          br
+          h4 決断がつかなくて英語と日本語の入り混じったカオス状態になってる
 

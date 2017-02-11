@@ -75,6 +75,7 @@ export function createDocument(document) {
         request.post(`/users/${document.user_id}/documents.json`)
             .send({
                 content: document.content,
+                title: document.title,
                 user_id: document.user_id,
                 authenticity_token: authenticity_token
             })
@@ -98,6 +99,7 @@ export function updateDocument(document) {
         request.patch(`/users/${document.user_id}/documents/${document.id}.json`)
             .send({
                 content: document.content,
+                title: document.title,
                 user_id: document.user_id,
                 authenticity_token: authenticity_token
             })

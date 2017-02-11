@@ -1,0 +1,31 @@
+div class="ui middle aligned center aligned four column grid"
+  .column
+    h2 class="ui teal header"
+      i.edit.icon
+      | ユーザー情報変更
+
+    .ui.stacked.segment.centered
+      = form_for @user, class: "ui large form" do |f|
+        - if @user.errors.any?
+          #error_explanation.ui.error.message
+            h2 = "#{@user.errors.count}件のエラーがあります。"
+            ul
+              - @user.errors.full_messages.each do |msg|
+                li = msg
+
+        .field
+          div class="ui left icon input"
+            i.mail.outline.icon
+            = f.text_field :email, placeholder: "メールアドレス"
+        br
+        .field
+          div class="ui left icon input"
+            i.lock.icon
+            = f.password_field :password, placeholder: "パスワード"
+        br
+        .field
+          div class="ui left icon input"
+            i.lock.icon
+            = f.password_field :password_confirmation, placeholder: "パスワード（確認）"
+        br
+        = f.submit "更新", class: "ui fluid large primary button"

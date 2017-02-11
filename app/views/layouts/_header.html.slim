@@ -1,12 +1,9 @@
-nav class="navbar navbar-light bg-warning navbar-full navbar-toggleable-md"
-  button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Menu"
-    span class="navbar-toggler-icon"
-      = fa_icon "chevron-down"
-  = link_to "MarkdownDocuments", root_url, class: "navbar-brand"
-  #navbarSupportedContent class="collapse navbar-collapse"
-    ul.nav.navbar-nav
-      - if user_signed_in?
-        li.nav-item
-          = link_to "New Document", new_user_document_path(current_user), class: "nav-link"
-        li.nav-item
-          = link_to "Documents", user_documents_path(current_user), class: "nav-link"
+nav class="ui menu"
+    = link_to "MarkdownDocuments", root_url, class: "header item"
+    - if user_signed_in?
+      = link_to new_user_document_path(current_user), class: "item" do
+        = fa_icon "plus 2x"
+      = link_to user_documents_path(current_user), class: "item" do
+        = fa_icon "th-list 2x"
+      = link_to edit_user_registration_path(current_user), class: "item" do
+        = fa_icon "cog 2x"

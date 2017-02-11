@@ -23,7 +23,6 @@ gem "webpacker", github: "rails/webpacker"
 
 gem "slim-rails", "0.2.0"
 
-gem "bootstrap", "~> 4.0.0.alpha6"
 gem "font-awesome-rails", "4.7.0.1"
 
 gem "devise", "~> 4.2.0"
@@ -47,7 +46,7 @@ gem "jbuilder", "~> 2.5"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger consqole
   gem "byebug", platform: :mri
   gem "pry-rails", "0.3.4"
   gem "pry-byebug", "3.4.0"
@@ -69,7 +68,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-source "https://rails-assets.org" do
-  gem "rails-assets-tether", ">= 1.3.3"
-end

@@ -22,5 +22,9 @@ module GenResume
       routing_spec: false,
       helper_spec: false
     end
+
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      "<div class='ui message negative'>#{html_tag}</div>".html_safe
+    end
   end
 end

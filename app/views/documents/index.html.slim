@@ -1,5 +1,17 @@
-- @documents.each do |document|
-  tr
-    td= document.content
-    td= document.user_id
-    td= link_to 'Edit', edit_document_path(document)
+.ui.grid
+  div class="ui two column centered grid"
+    h2 class="ui header"
+      i.list.icon
+      | Documents
+
+    div.column
+      table class="ui celled table"
+        thead class="primary"
+          tr
+            th 作成日時
+            th タイトル
+        - @documents.each do |document|
+          tbody
+            tr
+              td =  document.created_at.strftime("%Y/%m/%d %H:%M")
+              td = link_to document.title, edit_user_document_path(document.user.id, document)

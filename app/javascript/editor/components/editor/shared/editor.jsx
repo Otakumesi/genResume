@@ -43,15 +43,17 @@ class Editor extends Component {
 
     render() {
         return(
-            <div className="col-xs-12 col-md-6">
-              <textarea className="doc_editor"
-                        onChange={this.onChangeContent}
-                        onBlur={this.onBlurContent}
-                        value={this.props.document.content}
-                        ref='editor' />
+            <div className="column">
+              <textarea
+                placeholder="document body..."
+                className="document_editor"
+                onChange={this.onChangeContent}
+                onBlur={this.onBlurContent}
+                value={this.props.document.content}
+                ref='editor' />
               <button
                 type="button"
-                className="btn btn-lg btn-success btn-save"
+                className="ui teal large button left-bottom-fixed"
                 onClick={this.onSaveClick}>
                 Save
               </button>

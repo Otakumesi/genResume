@@ -30,9 +30,11 @@ class Reviewer extends Component {
 
     render() {
         return(
-            <div
-              className="doc_reviewer keiyaku col-xs-12 col-md-6"
-              dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
+            <div className="column">
+              <div
+                className="document_reviewer keiyaku ui segment"
+                dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
+            </div>
         );
     }
 }

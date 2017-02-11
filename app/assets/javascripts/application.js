@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tether
-//= require bootstrap-sprockets
+//= require semantic-ui/semantic
+//= require semantic-ui/components/modal
+//= require semantic-ui/components/dropdown
 //= require_tree .
