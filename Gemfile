@@ -21,6 +21,8 @@ gem "coffee-rails", "~> 4.2"
 # gem 'therubyracer', platforms: :ruby
 gem "webpacker", github: "rails/webpacker"
 
+gem 'kaminari', '1.0.1'
+
 gem "slim-rails", "0.2.0"
 
 gem "font-awesome-rails", "4.7.0.1"

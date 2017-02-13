@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = @user.documents
+    @documents = @user.documents.page(params[:page]).per(10)
   end
 
   # GET /documents/1.json

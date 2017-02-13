@@ -1,34 +1,42 @@
-provide :title, "MarkdownDocuments"
+provide :title, "Japmple"
 
 .ui.grid
-  div class="ui two column centered grid"
-    .ui.message.huge.page.grid.centered.info.column
-      .header
-        h1 class="ui huge header" Welcome To MarkdownDocuments!!!
-        p Simplify writing a resume
-        - unless user_signed_in?
-          = link_to new_user_registration_path, class: 'ui teal button huge' do
-            | 登録 
-            = fa_icon "user"
-          |  
-          = link_to user_facebook_omniauth_authorize_path, class: 'ui facebook button huge' do
-            | facebookログイン 
-            = fa_icon "facebook-square"
-    .column
+  div class="ui one column centered grid"
+    .hero-unit
+      .ui.message.huge.page.grid.centered.column.white-cover
+        .header
+          br
+          h2 class="ui huge header" Welcome To Jample!!!
+          p Simplify writing a japanese document.
+          - unless user_signed_in?
+            = link_to new_user_registration_path, class: 'ui teal button huge' do
+              | 登録する 
+              = fa_icon "user"
+            |  
+            = link_to new_user_session_path, class: 'ui primary button huge' do
+              | ログイン 
+              = fa_icon "user"
+            |  
+            = link_to user_facebook_omniauth_authorize_path, class: 'ui facebook button huge' do
+              | facebookログイン 
+              = fa_icon "facebook-square"
+    .column.description
       div class="ui three column grid"
         div class="column ui center aligned"
           = fa_icon "pencil 5x"
           br
           br
-          h4 日本語用ドキュメントが早くMarkdownで書ける？
-        div class="column ui center aligned"
-          = fa_icon "cloud 5x"
-          br
-          br
-          h4 キャッチコピーが思いつかない
+          h4 「職務履歴書をMarkdownで書きたい」という欲求から出発したアプリケーションです。
         div class="column ui center aligned"
           = fa_icon "copy 5x"
           br
           br
-          h4 決断がつかなくて英語と日本語の入り混じったカオス状態になってる
+          h4
+            = link_to "keiyaku.css", "https://cognitom.github.io/keiyaku-css/", target: "_blank"
+            | によって日本の契約文書のようなデザインとして出力されます。
+        div class="column ui center aligned"
+          = fa_icon "code 5x"
+          br
+          br
+          h4 記法にMarkdownを採用しているため、Programmer Friendlyなサービスです。
 

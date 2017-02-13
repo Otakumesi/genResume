@@ -15,3 +15,5 @@
             tr
               td =  document.created_at.strftime("%Y/%m/%d %H:%M")
               td = link_to document.title, edit_user_document_path(document.user.id, document)
+
+      = paginate @documents

@@ -10,6 +10,28 @@ body {
   padding: 0;
 }
 
+.hero-unit {
+  min-height: 270px !important;
+  background-image: image-url("concept.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.white-cover {
+  min-height: 270px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-size: cover !important;
+}
+
+.description {
+  margin-top: 30px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
 .left-bottom-fixed {
   position: fixed;
   left: 20px;
