@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require semantic-ui/semantic
-//= require semantic-ui/components/modal
-//= require semantic-ui/components/dropdown
+//= require semantic_ui/semantic
+//= require semantic_ui/components/modal
+//= require semantic_ui/components/dropdown
 //= require_tree .
