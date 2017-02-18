@@ -19,7 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-/public/packs
+
 ### https://raw.github.com/github/gitignore/da521d7bbf55a94eb8be611c54a6f36d6e8e5623/rails.gitignore
 
 *.rbc
@@ -38,7 +38,6 @@ pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-config/secrets.yml
 
 ## Environment normalization:
 /.bundle
@@ -58,5 +57,7 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+.envrc
 
-
+/public/assets
+/public/packs

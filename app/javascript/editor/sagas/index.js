@@ -61,11 +61,11 @@ export function * handlePostFlow(callMethod, document, toUpdate = false) {
 }
 
 export function handleErrorMessages(errorMsg) {
-    if(Array.isArray(errorMsg)) {
-        put({type: DOCUMENT_POST_VALIDATION_ERROR, error: errorMsg});
-    } else {
-        put({type: DOCUMENT_POST_ERROR, error: errorMsg});
-    }
+    put({type: DOCUMENT_POST_VALIDATION_ERROR, error: buildErrorMessage(errorMsg)});
+}
+
+export function buildErrorMessage(errorMsg) {
+    return `保存に失敗しました。 メッセージ: ${errorMsg}`;
 }
 
 const authenticity_token = document.getElementById('editor').getAttribute('token');

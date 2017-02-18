@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
         format.json { render json: { document_id: @document.id }, status: :created }
       else
         format.html { render :new }
-        format.json { render json: { errMsg: @document.errors.full_messages }, status: :unprocessable_entity }
+        format.json { render json: { errMsg: "入力値にいれられない値が入っております。" }, status: :unprocessable_entity }
       end
     end
   end
