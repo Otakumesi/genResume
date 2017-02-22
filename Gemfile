@@ -21,8 +21,7 @@ gem "webpacker", github: "rails/webpacker"
 
 gem "kaminari", "1.0.1"
 
-gem "wicked_pdf", "1.1.0"
-gem "wkhtmltopdf-binary"
+gem "showdown-rails", "0.0.4"
 
 gem "slim-rails", "0.2.0"
 

@@ -1,6 +1,8 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :new, :create, :edit, :update]
+  before_action :authenticate_user!
+  before_action :user_has_authority, only: [:index, :new, :create, :edit, :update]
 
   # GET /documents
   # GET /documents.json
@@ -10,6 +12,12 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1.json
   def show
+    respond_to do |format|
+      format.json {}
+      format.html do
+        render layout: "raw_output"
+      end
+    end
   end
 
   # GET /documents/new
@@ -28,7 +36,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: "Document was successfully created." }
+        format.html { redirect_to user_document_path(@user, @document), notice: "Document was successfully created." }
         format.json { render json: { document_id: @document.id }, status: :created }
       else
         format.html { render :new }
@@ -42,7 +50,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: "Document was successfully updated." }
+        format.html { redirect_to user_document_path(@user, @document), notice: "Document was successfully updated." }
         format.json { render json: { document_id: @document.id }, status: :ok }
       else
         format.html { render :edit }
@@ -56,7 +64,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to documents_url, notice: "Document was successfully destroyed." }
+      format.html { redirect_to root_url, notice: "Document was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -75,5 +83,12 @@ class DocumentsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def document_params
     params.require(:document).permit(:content, :title, :user_id)
+  end
+
+  def user_has_authority
+    unless current_user.admin? || current_user.id == params[:user_id].to_i
+      flash[:error] = "異なるユーザーのドキュメントを操作することはできません。"
+      redirect_to root_url
+    end
   end
 end
