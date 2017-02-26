@@ -1,25 +1,30 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var path = require('path')
-var glob = require('glob')
-var extname = require('path-complete-extname')
+const webpack = require('webpack')
+const path = require('path')
+const process = require('process')
+const glob = require('glob')
+const extname = require('path-complete-extname')
+let distDir = process.env.WEBPACK_DIST_DIR
 
-module.exports = {
-  entry: glob.sync(path.join('..', 'app', 'javascript', 'packs', '*.js*')).reduce(
-    function(map, entry) {
-      var basename = path.basename(entry, extname(entry))
-      map[basename] = entry
-      return map
-    }, {}
-  ),
+if (distDir === undefined) {
+  distDir = 'packs'
+}
 
-  output: { filename: '[name].js', path: path.resolve('..', 'public', 'packs') },
+config = {
+  entry: glob.sync(path.join('app', 'javascript', 'packs', '*.js*')).reduce((map, entry) => {
+    const basename = path.basename(entry, extname(entry))
+    map[basename] = path.resolve(entry)
+    return map
+  }, {}),
+
+  output: { filename: '[name].js', path: path.resolve('public', distDir) },
 
   module: {
     rules: [
-      { test: /\.coffee(.erb)?$/, loader: "coffee-loader" },
+      { test: /\.coffee(\.erb)?$/, loader: "coffee-loader" },
       {
-        test: /\.jsx?(.erb)?$/,
+        test: /\.jsx?(\.erb)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
@@ -30,28 +35,35 @@ module.exports = {
         }
       },
       {
-        test: /.erb$/,
+        test: /\.erb$/,
         enforce: 'pre',
         exclude: /node_modules/,
         loader: 'rails-erb-loader',
         options: {
-          runner: 'DISABLE_SPRING=1 ../bin/rails runner'
+          runner: 'DISABLE_SPRING=1 bin/rails runner'
         }
       },
     ]
   },
 
-  plugins: [],
+  plugins: [
+    new webpack.EnvironmentPlugin(Object.keys(process.env))
+  ],
 
   resolve: {
-    extensions: [ '.js', '.coffee' ],
+    extensions: [ '.js', '.jsx', '.coffee' ],
     modules: [
-      path.resolve('../app/javascript'),
-      path.resolve('../vendor/node_modules')
+      path.resolve('app/javascript'),
+      path.resolve('node_modules')
     ]
   },
 
   resolveLoader: {
-    modules: [ path.resolve('../vendor/node_modules') ]
-  },
+    modules: [ path.resolve('node_modules') ]
+  }
+}
+
+module.exports = {
+  distDir: distDir,
+  config: config
 }

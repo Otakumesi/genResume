@@ -1,10 +1,10 @@
 import { createAction } from 'redux-actions';
 import {
-    DOCUMENT_EDIT,
-    DOCUMENT_FETCH_REQUEST,
-    DOCUMENT_POST_REQUEST,
-    DOCUMENT_IDENTIFY,
-    CLEAR_MESSAGE,
+  DOCUMENT_EDIT,
+  DOCUMENT_FETCH_REQUEST,
+  DOCUMENT_POST_REQUEST,
+  DOCUMENT_IDENTIFY,
+  CLEAR_MESSAGE,
 } from './constants';
 
 export const edit_document = createAction(DOCUMENT_EDIT, (edit_data) => edit_data);

@@ -3,44 +3,44 @@ import { connect } from 'react-redux';
 import showdown from 'showdown';
 
 const mdConverterOptions = {
-    ghCodeBlocks: true,
-    tables: true,
-    tasklists: true,
+  ghCodeBlocks: true,
+  tables: true,
+  tasklists: true,
 };
 const MdConverter = new showdown.Converter(mdConverterOptions);
 
 function rawMarkup(text) {
-    let sanitizedText = htmlEncode(text);
-    return { __html: MdConverter.makeHtml(sanitizedText) };
+  let sanitizedText = htmlEncode(text);
+  return { __html: MdConverter.makeHtml(sanitizedText) };
 }
 
 function htmlEncode(text) {
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 class Reviewer extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return(
-            <div className="column">
-              <div
-                className="document_reviewer keiyaku ui segment"
-                dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
-            </div>
-        );
-    }
+  render() {
+    return(
+      <div className="column">
+        <div
+          className="document_reviewer keiyaku ui segment"
+          dangerouslySetInnerHTML={rawMarkup(this.props.content)} />
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return state.document;
+  return state.document;
 }
 
 export default connect(mapStateToProps)(Reviewer);

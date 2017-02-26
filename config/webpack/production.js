@@ -1,13 +1,12 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var path    = require('path')
-var webpack = require('webpack')
-var merge   = require('webpack-merge')
+const webpack = require('webpack')
+const merge   = require('webpack-merge')
 
-var config = require('./shared.js')
+const sharedConfig = require('./shared.js')
 
-module.exports = merge(config, {
-  output: { filename: "[name]-[hash].js" },
+module.exports = merge(sharedConfig.config, {
+  output: { filename: '[name]-[chunkhash].js' },
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
