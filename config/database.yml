@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: pg
-  database: db/production.pg
+  adapter: postgresql
+  host: <%= postgresql_host %>
+  port: <%= postgresql_port %>
+  database: jample_production
+  encofing: utf8
+  username: ec2_user
+  password: <%= posgresql_pw %>
