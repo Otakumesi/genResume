@@ -22,9 +22,9 @@ test:
 
 production:
   adapter: postgresql
-  host: <%= postgresql_host %>
-  port: <%= postgresql_port %>
+  host: <%= ENV["postgresql_host"] %>
+  port: <%= ENV["postgresql_port"] %>
   database: jample_production
   encofing: utf8
   username: ec2_user
-  password: <%= posgresql_pw %>
+  password: <%= ENV["posgresql_pw"] %>
