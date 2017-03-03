@@ -71,7 +71,7 @@ end
 
 group :production do
   gem "pg", "0.19.0"
-  gem "rails_12factor", "0.0.3"
+  gem "unicorn", "5.2.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
