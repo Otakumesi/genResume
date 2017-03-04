@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require semantic_ui/semantic
-//= require semantic_ui/components/modal
-//= require semantic_ui/components/dropdown
 //= require showdown
 //= require_tree .

@@ -8,10 +8,10 @@
       "themes": "src/themes/"
     },
     "output": {
-      "packaged": "vendor/assets/stylesheets/",
-      "uncompressed": "vendor/assets/stylesheets/components/",
-      "compressed": "vendor/assets/stylesheets/components/",
-      "themes": "vendor/assets/stylesheets/themes/"
+      "packaged": "../../public/assets/semantic_ui/",
+      "uncompressed": "../../public/assets/semantic_ui/components/",
+      "compressed": "../../public/assets/semantic_ui/components/",
+      "themes": "../../public/assets/semantic_ui/themes/"
     },
     "clean": "dist/"
   },
