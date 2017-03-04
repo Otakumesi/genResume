@@ -26,5 +26,5 @@ production:
   port: <%= ENV["postgresql_port"] %>
   database: jample_production
   encofing: utf8
-  username: ec2_user
-  password: <%= ENV["posgresql_pw"] %>
+  username: <%= ENV["postgresql_user"] %>
+  password: <%= ENV["postgresql_pw"] %>
