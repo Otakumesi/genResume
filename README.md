@@ -1,13 +1,9 @@
 ## README
 
 ### TODO
-- デザイン
- - コンセプトページ？
-- テスト
- - Rspec
- - mocha
-- OAuth
- - Facebook
- - Google
-
+- [ ] テスト
+ - [ ] Rspec
+ - [ ] jest
+- [ ] エラーページ
+- [ ] keiyaku.cssをforkして履歴書っぽいフォーマットにする？
 
