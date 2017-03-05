@@ -12,10 +12,8 @@ html[lang="ja"]
     = render 'layouts/header'
     - if notice
       p.notice class="ui positive message fluid"
-        i class="close icon"
         = notice
     - if alert
       p.alert class="ui negative message fluid"
-        i class="close icon"
         = alert
     = yield
