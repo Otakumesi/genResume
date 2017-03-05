@@ -10,7 +10,7 @@ div class="ui middle aligned center aligned four column grid"
            div class="ui left icon input"
              i.mail.outline.icon
              = f.email_field :email, placeholder: "xxxxx@xxx.com",  autofocus: true
-         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+         - if false && devise_mapping.confirmable? && resource.pending_reconfirmation?
            div
              | Currently waiting confirmation for: 
              = resource.unconfirmed_email
