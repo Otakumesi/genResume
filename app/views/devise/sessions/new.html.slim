@@ -1,7 +1,7 @@
 div class="ui middle aligned center aligned four column grid"
   .column
     h2 class="ui header"
-      = fa_icon "sign-in", text: "Login"
+      = fa_icon "sign-in", text: "ログイン"
     .ui.stacked.segment.centered
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
@@ -21,6 +21,6 @@ div class="ui middle aligned center aligned four column grid"
               = f.label :remember_me, "ログインを保存する？"
         br
         .actions
-          = f.submit "Login", class: "ui button primary"
+          = f.submit "ログインする", class: "ui button primary"
         br
         = render "devise/shared/links"

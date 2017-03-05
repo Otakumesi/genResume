@@ -1,7 +1,7 @@
 div class="ui middle aligned center aligned four column grid"
   .column
     h2 class="ui header"
-      = fa_icon "user-plus", text: "Signup"
+      = fa_icon "user-plus", text: "アカウントの登録"
     .ui.stacked.segment.centered
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
@@ -21,6 +21,6 @@ div class="ui middle aligned center aligned four column grid"
             = f.password_field :password_confirmation, autocomplete: "off", placeholder: "*** (確認)"
         br
         .actions
-          = f.submit "サインアップ", class: "ui button primary"
+          = f.submit "アカウントを登録する", class: "ui button primary"
         br
         = render "devise/shared/links"

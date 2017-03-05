@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :new, :create, :edit, :update]
+  before_action :store_current_location
   before_action :authenticate_user!
   before_action :user_has_authority, only: [:index, :new, :create, :edit, :update]
 
